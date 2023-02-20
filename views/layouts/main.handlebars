@@ -11,7 +11,7 @@
 <body>
   <header class="display-flex justify-space-between align-center p-2">
     <h1>
-      Blog Posts
+      <a href="/">Blog Post</a>
     </h1>
     <nav>
         {{#if logged_in}}
@@ -28,6 +28,10 @@
   <footer>
       
   </footer>
+
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
 </body>
 
 </html>
