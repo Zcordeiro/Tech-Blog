@@ -1,8 +1,18 @@
-<div class="text-center">
-  <h2>{{blog_title}}</h2>
-    <br>
-  <p>Created by {{user.name}} on {{format_date date_added}}</p>
-  <p>
+<div class="text-center border-4 border-zinc-900 mx-auto w-2/3 bg-zinc-800">
+  <div class="text-white">
+    <h2 class="text-5xl">{{blog_title}}</h2>
+    <p class="text-xl italic text-gray-400">Created by
+      {{user.name}}
+      on
+      {{format_date date_added}}</p>
+  </div>
+  <p class="m-5 border-4 border-zinc-600 bg-yellow-100 text-4xl">
     {{blog_content}}
   </p>
+</div>
+
+<div>
+  <div class="text-center border-4 border-zinc-900 mx-auto w-2/3 bg-zinc-500">
+  {{comment.comment_data}}
+  </div>
 </div>

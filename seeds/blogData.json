@@ -1,14 +1,17 @@
 [
     {
         "blog_title": "This is a blog title",
-        "blog_content": "This is a blog content with a lot of text"
+        "blog_content": "This is a blog content with a lot of text",
+        "user_id": 1
     },
     {
         "blog_title": "This is brand new blog title",
-        "blog_content": "This is new blog content with a lot more text than the last time of text"
+        "blog_content": "This is new blog content with a lot more text than the last time of text",
+        "user_id": 3
     },
     {
         "blog_title": "This is anoter brand new blog title",
-        "blog_content": "This is more blog content with a lot more text than the last time of text"
+        "blog_content": "This is more blog content with a lot more text than the last time of text",
+        "user_id": 2
     }
 ]

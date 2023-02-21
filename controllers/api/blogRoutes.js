@@ -6,13 +6,23 @@ router.post('/', withAuth, async (req, res) => {
     try {
         const newBlog = await Blog.create({
             ...(req.body),
-            user_id: req.session.user_id
+            user_id: req.session.user_id,
+            include: [{
+                model: Comment,
+                attributes: ['comment_text'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            }]
         });
         res.status(200).json(newBlog);
     } catch (err) {
         res.status(400).json(err);
     }
 });
+
+
 
 
 router.delete('/:id', withAuth, async (req, res) => {
