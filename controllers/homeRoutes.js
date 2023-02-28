@@ -25,7 +25,7 @@ router.get('/', async (req, res) => {
 });
 
 
-router.get('/blog/:id',  async (req, res) => {
+router.get('/blog/:id', withAuth,  async (req, res) => {
     try {
         const blogData = await Blog.findByPk(req.params.id, {
             include: [{
@@ -42,7 +42,6 @@ router.get('/blog/:id',  async (req, res) => {
             }]
         });
         const blog = blogData.get({ plain: true });
-        console.log(blog);
         res.render('blog', blog);
     } catch (err) {
         res.status(500).json(err);
