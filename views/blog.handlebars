@@ -11,8 +11,16 @@
   </p>
 </div>
 
-<div>
-  <div class="text-center border-4 border-zinc-900 mx-auto w-2/3 bg-zinc-500">
-  {{comment.comment_data}}
+
+{{#each comments as |comment|}}
+<div class="m-5 text-white">
+
+  Comment left on: {{format_date comment.date_added}}
+  <br>
+  <div class="text-gray-200"> By: {{comment.user.name}} </div>
+  <div class="w-1/3 bg-white text-black">
+  {{comment.comment_data}} 
   </div>
+
 </div>
+{{/each}}
