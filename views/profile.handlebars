@@ -1,43 +1,50 @@
 <div class="row">
-  <div class="col-auto">
+  <div class="text-4xl text-white">
     <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
 
 <div class="row mt-4">
-  <div class="col-md-6 border-2 border-black">
-    <h3 class="text-xl">Create a New Blog Post:</h3>
 
-    <form class="form new-blog-form M-3">
-      <div class="form-group">
+  <div class="w-2/3 mx-auto text-center text-white bg-black border border-transparent">
+    <h3 class="text-xl m-3 text-center form-group inline-flex items-center justify-center px-6 py-2 font-normal text-white bg-black border border-transparent">Create a New Blog Post:</h3>
+
+    <form class="gap-3 form new-blog-form text-gray-400">
+      <div class="form-group m-2 text-2xl">
         <label for="blog-blog_title">Blog Title:</label>
-        <input class="form-input" type="text" id="blog-blog_title" name="blog-blog_title" />
+        <input class="form-input text-black" type="text" id="blog-blog_title" name="blog-blog_title" />
       </div>
-
-      <div class="form-group M-3">
+      <br>
+      <div class="form-group m-2 text-2xl">
         <label for="blog-blog_content">Content:</label>
-        <textarea class="form-input" id="blog-blog_content" name="blog-blog_content"></textarea>
+        <textarea class="form-input text-black" id="blog-blog_content" name="blog-blog_content"></textarea>
       </div>
-
-      <div class="form-group relative inline-flex items-center justify-center px-6 py-2 text-base font-normal text-white bg-black border border-transparent rounded-full">
+      <br>
+      <div class="form-group m-2 relative inline-flex items-center justify-center px-6 py-2 text-base font-normal text-black bg-white border border-transparent rounded-full">
         <button type="submit" class="btn btn-primary">Create</button>
       </div>
     </form>
   </div>
 
-  {{#if blogPosts.length}}
+  {{#if blogs}}
   <div class="col-md-6 blog-list">
-    <h3>Recent Blog Posts:</h3>
+    <h3 class="m-2 text-center text-4xl">Recent Blog Posts:</h3>
 
-    {{#each blogPosts as |blog|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/blog/{{blog.id}}">{{blog.blog_title}}</a></h4>
-      </div>
-      <div class="col-md-4">
+    {{#each blogs as |blog|}}
+<div class="row mb-4 blog">
+  <div class="border-4 border-zinc-700 w-5/6 mx-auto">
+    <h2 class="p-4 bg-zinc-800 text-white text-3xl">
+      <a href="/blog/{{blog.id}}">{{blog.blog_title}}</a>
+    </h2>
+    <p class="bg-slate-700 text-l text-neutral-100">Created by {{blog.user.name}} on {{format_date blog.date_added}}</p>
+    </div>
+     
+        <div class="col-md-4 bg-black text-white text-center text-2xl w-1/6 mx-auto">
         <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button>
       </div>
-    </div>
+     </div>
+</div>
+
     {{/each}}
   </div>
   {{/if}}
